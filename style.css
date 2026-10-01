@@ -350,6 +350,7 @@ body {
     width: 100%;
     /* tune this % so the ring renders at ~545px at your target viewport — adjust freely */
     aspect-ratio: 1 / 1;
+    overflow: visible;
 }
 
 .values-circle__ring {
@@ -359,15 +360,20 @@ body {
     width: 100%;
     height: 100%;
     border-radius: 50%;
-    background: radial-gradient(
-        circle,
+    background-color: rgb(12, 42, 66);
+    -webkit-mask-image: linear-gradient(to right,
+            transparent 0%,
+            transparent 38%,
+            black 58%,
+            black 100%);
+    /* mask-image: linear-gradient(
+        to right,
         transparent 0%,
-        transparent 45%,
-        #223452 45%,
-        #223452 100%
-    );
-    border: 2px solid rgba(255, 255, 255, 0.15);
-    clip-path: inset(0 0 0 50%); /* removes everything left of center, sharp vertical edge */
+        transparent 38%,
+        black 58%,
+        black 100%
+    ); */
+    mask-image: conic-gradient(from 0deg at 50% 50%, transparent 0deg, black 66deg, black 121deg, transparent 180deg, transparent 360deg);
     z-index: 0;
 }
 
@@ -391,34 +397,88 @@ body {
     height: auto;
 }
 
+/* Orbiting Labels */
+.values-circle__orbit-label {
+    width: fit-content;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    /* background-color: rgba(23, 36, 59, 0.85); */
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    color: var(--color-white);
+    padding: 0.75rem;
+    border-radius: 4px;
+    font-size: 1.25rem;
+    font-weight: 600;
+    white-space: nowrap;
+    z-index: 4;
+    font-family: "Lato", sans-serif;
+    pointer-events: none;
+    background-color: #0E2C45;
+}
+
+.values-circle__orbit-label--love {
+    top: 13.5%;
+    left: 50%;
+    color: #0976DE;
+}
+
+.values-circle__orbit-label--teaching {
+    top: 25%;
+    left: 17.5%;
+}
+
+.values-circle__orbit-label--generosity {
+    top: 25%;
+    left: 82.5%;
+}
+
+.values-circle__orbit-label--hope {
+    top: 74%;
+    left: 17.5%;
+    color: #0976DE;
+}
+
+.values-circle__orbit-label--faith {
+    top: 74%;
+    left: 82.5%;
+    color: #0976DE;
+}
+
+.values-circle__orbit-label--community {
+    top: 88.5%;
+    left: 50%;
+}
+
 /* Values Text Content */
 .eyebrow-label {
     color: var(--color-brand-blue);
-    font-size: 0.875rem;
+    font-size: 1rem;
     text-transform: uppercase;
-    letter-spacing: 0.1em;
-    font-weight: 700;
-    margin-bottom: 1rem;
-    font-family: "Lato", sans-serif;
+    letter-spacing: 0%;
+    font-weight: 500;
+    margin-bottom: 2rem;
+    font-family: "Bricolage Grotesque", sans-serif;
+    line-height: 16px;
 }
 
 .values-heading {
     color: var(--color-white);
     font-weight: 700;
-    letter-spacing: 2%;
-    line-height: 100%;
+    letter-spacing: 0%;
+    line-height: 48px;
     font-family: "Bricolage Grotesque", sans-serif;
-    font-size: clamp(2rem, 1.2rem + 2.5vw, 4.5rem);
+    font-size: clamp(2rem, 1.2rem + 2.35vw, 4.5rem);
     margin: 0 0 1.5rem 0;
 }
 
 .values-paragraph {
-    color: #A8B2C3;
-    font-size: 1.125rem;
+    color: #B2C7DB;
+    font-size: 1.25rem;
     font-weight: 400;
-    line-height: 1.6;
+    line-height: 30px;
     letter-spacing: 0;
-    margin: 0 0 1.25rem 0;
+    margin: 0 0 1.5rem 0;
 }
 
 .values-paragraph:nth-of-type(2) {
@@ -426,20 +486,149 @@ body {
 }
 
 .callout-block {
+    width: fit-content;
     border-left: 2px solid var(--color-brand-blue);
-    padding-left: 1.25rem;
+    padding: 0.1875rem 0rem 0.1875rem 1.25rem;
 }
 
 .callout-title {
+    width: fit-content;
     color: var(--color-brand-blue);
     font-size: 1rem;
-    font-weight: 600;
+    font-weight: 500;
     margin-bottom: 0.25rem;
-    font-family: "Lato", sans-serif;
+    font-family: "Bricolage Grotesque", sans-serif;
+    line-height: 16px;
+    letter-spacing: 0%;
 }
 
 .callout-text {
+    width: fit-content;
     color: var(--color-white);
-    font-size: 1.125rem;
+    font-size: 1rem;
+    font-weight: 500;
+    line-height: 16px;
+    letter-spacing: 0%;
+    font-family: "Bricolage Grotesque", sans-serif;
+}
+
+/* About Good Job Section */
+.about-section {
+    background-color: #FFFFFF;
+    width: 100%;
+    padding: 6.25rem 3.75rem;
+}
+
+.about-header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    width: 100%;
+}
+
+.about-header__text {
+    width: 50%;
+}
+
+.about-header__paragraph {
+    width: 40%;
+    margin-top: 2.4375rem;
+}
+
+.about-section .eyebrow-label {
+    width: fit-content;
+    color: var(--color-brand-blue);
+    font-size: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 0%;
+    font-weight: 500;
+    margin: 0 0 1rem 0;
+    font-family: "Bricolage Grotesque", sans-serif;
+    line-height: 16px;
+}
+
+.about-heading {
+    width: 83%;
+    color: #05121E;
+    font-weight: 700;
+    line-height: 48px;
+    font-family: "Bricolage Grotesque", sans-serif;
+    font-size: clamp(1.75rem, 1.2rem + 2vw, 2.5rem);
+    margin: 0;
+    letter-spacing: 0%;
+}
+
+.about-paragraph {
+    width: 98%;
+    color: #0D2C4A;
+    font-size: 1.25rem;
     font-weight: 400;
+    line-height: 30px;
+    margin: 0;
+    font-family: "Bricolage Grotesque", sans-serif;
+}
+
+.about-image-frame {
+    display: flex;
+    flex-direction: row;
+    gap: 1.25%;
+    width: 100%;
+    padding: 1.25rem;
+    border: 5px solid var(--color-brand-blue);
+    border-radius: 32px;
+    margin-top: 2.5rem;
+    background: #0976DE;
+}
+
+.about-image-frame img {
+    width: 32.5%;
+    height: auto;
+    aspect-ratio: 4 / 3.2;
+    object-fit: cover;
+    border-radius: 14px;
+    display: block;
+}
+
+.about-captions {
+    display: flex;
+    flex-direction: row;
+    gap: 1.25%;
+    width: 100%;
+    margin-top: 1.5rem;
+}
+
+.about-caption {
+    width: 32.5%;
+    display: flex;
+    flex-direction: column;
+}
+
+.about-caption:first-of-type {
+    margin-left: 1.25%;
+}
+
+.about-caption__title {
+    display: flex;
+    flex-direction: row;
+    align-items: baseline;
+    gap: 0.5rem;
+    font-weight: 700;
+    color: #12181F;
+    font-size: 1.125rem;
+    margin-bottom: 0.5rem;
+    font-family: "Lato", sans-serif;
+}
+
+.about-caption__number {
+    color: #12181F;
+    font-weight: 700;
+}
+
+.about-caption__text {
+    color: var(--color-brand-blue);
+    font-size: 0.95rem;
+    line-height: 1.5;
+    margin: 0;
 }
