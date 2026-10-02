@@ -721,18 +721,17 @@ body {
     bottom: 0;
     left: 0;
     width: 100%;
-    padding: 1.5rem;
+    padding: 3rem;
     display: flex;
     flex-direction: column;
-    gap: 0.5rem;
-    background: linear-gradient(to top, rgba(9, 118, 222, 0.95) 0%, rgba(9, 118, 222, 0.75) 45%, transparent 100%);
+    gap: 0.75rem;
+    background: linear-gradient(to top, rgba(9, 118, 222, 0.95) 50%, rgba(9, 118, 222, 0.75) 75%, transparent 100%);
 }
 
 .serve-card__icon-badge {
-    width: 2.75rem;
-    height: 2.75rem;
-    background-color: rgba(255, 255, 255, 0.15);
-    border: 1px solid rgba(255, 255, 255, 0.25);
+    width: 3.75rem;
+    height: 3.75rem;
+    background-color: #43595180;
     border-radius: 10px;
     display: flex;
     justify-content: center;
@@ -740,20 +739,24 @@ body {
 }
 
 .serve-card__icon-badge img {
-    width: 45%;
+    width: 67%;
     height: auto;
 }
 
 .serve-card__label {
+    width: fit-content;
     color: #FFFFFF;
-    font-size: 0.8rem;
-    font-weight: 700;
-    letter-spacing: 0.05em;
+    font-size: 1rem;
+    font-weight: 500;
+    letter-spacing: 0%;
     text-transform: uppercase;
     margin: 0;
+    font-family: "Bricolage Grotesque", sans-serif;
+    line-height: 100%;
 }
 
 .serve-card__title {
+    width: fit-content;
     color: #FFFFFF;
     font-weight: 700;
     font-size: 1.5rem;
@@ -763,7 +766,7 @@ body {
 
 .serve-card__desc {
     color: rgba(255, 255, 255, 0.85);
-    font-size: 0.95rem;
-    line-height: 1.5;
+    font-size: 1rem;
+    line-height: 100%;
     margin: 0;
 }
