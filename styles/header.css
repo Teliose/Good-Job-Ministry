@@ -1,0 +1,117 @@
+/* Header Container */
+.site-header {
+    width: 100%;
+    /* max-width: 1440px; */
+    height: auto;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    background-color: var(--color-bg);
+    padding: 2.5rem 3.75rem;
+}
+
+/* Logo Block */
+.logo-link {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 0.875rem;
+    width: auto;
+    flex-shrink: 0;
+    text-decoration: none;
+    cursor: pointer;
+    border-radius: 0.5rem;
+    padding: 0.25rem;
+    outline: none;
+}
+
+/* Navigation Links */
+.main-nav {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 0.625rem;
+    flex-grow: 1;
+    justify-content: center;
+}
+
+.nav-link {
+    color: var(--color-text-muted);
+    font-weight: 600;
+    font-size: 1.25rem;
+    text-decoration: none;
+    transition: color 0.2s ease;
+    position: relative;
+    padding: 0.5rem 1rem;
+    outline: none;
+    font-family: "Lato", sans-serif;
+    line-height: 100%;
+    letter-spacing: 2%;
+}
+
+.nav-link:hover,
+.nav-link.active,
+.nav-link:focus-visible {
+    color: var(--color-white);
+}
+
+.nav-indicator {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0%;
+    height: 2px;
+    background-color: var(--color-brand-outline);
+    transition: width 0.3s ease;
+    border-radius: 999px;
+    will-change: width;
+}
+
+.nav-link:hover .nav-indicator,
+.nav-link.active .nav-indicator,
+.nav-link:focus-visible .nav-indicator {
+    width: 100%;
+}
+
+/* CTA Button */
+.cta-container {
+    width: auto;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.cta-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--color-brand-blue);
+    color: var(--color-white);
+    font-weight: 700;
+    font-size: 1.25rem;
+    font-style: bold;
+    padding: 1rem;
+    border-radius: 8px;
+    /* This stays pill-shaped as per spec */
+    text-decoration: none;
+    transition: all 0.2s ease;
+    cursor: pointer;
+    outline: none;
+    opacity: 80%;
+    will-change: transform, background-color;
+}
+
+.cta-button:hover {
+    background-color: var(--color-brand-blue-hover);
+    transform: scale(1.03);
+}
+
+.cta-button:active {
+    transform: scale(0.98);
+}
+
+.cta-button:focus-visible {
+    box-shadow: 0 0 0 2px var(--color-bg), 0 0 0 4px var(--color-brand-outline);
+}

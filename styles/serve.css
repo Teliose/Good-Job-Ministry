@@ -1,0 +1,129 @@
+/* How We Serve Section */
+.serve-section {
+    background-color: #FFFFFF;
+    width: 100%;
+    padding: 6.25rem 3.75rem;
+    display: flex;
+    flex-direction: column;
+    gap: 2.5rem;
+}
+
+.serve-header {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    width: 100%;
+    gap: 1rem;
+}
+
+.serve-header__text {
+    width: 100%;
+}
+
+.serve-header__text>.eyebrow-label {
+    margin: 0;
+    width: fit-content;
+}
+
+.serve-header__content {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+    /* flex-wrap: wrap; */
+}
+
+.serve-header__content .about-paragraph {
+    width: 40%;
+    /* overrides the shared .about-paragraph's 98% in this specific context */
+}
+
+.serve-heading {
+    width: 37%;
+    color: #12181F;
+    font-weight: 700;
+    line-height: 1.2;
+    font-family: "Bricolage Grotesque", sans-serif;
+    font-size: clamp(1.75rem, 1.2rem + 2vw, 2.75rem);
+    margin: 0;
+}
+
+.serve-cards {
+    display: flex;
+    flex-direction: row;
+    gap: 3.75rem;
+    width: 100%;
+    border-radius: 32px;
+}
+
+.serve-card {
+    position: relative;
+    width: 49%;
+    aspect-ratio: 1 / 0.92;
+    border-radius: 20px;
+    overflow: hidden;
+}
+
+.serve-card__image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.serve-card__overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 3rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    background: linear-gradient(to top, rgba(9, 118, 222, 0.95) 50%, rgba(9, 118, 222, 0.75) 75%, transparent 100%);
+}
+
+.serve-card__icon-badge {
+    width: 3.75rem;
+    height: 3.75rem;
+    background-color: #43595180;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.serve-card__icon-badge img {
+    width: 67%;
+    height: auto;
+}
+
+.serve-card__label {
+    width: fit-content;
+    color: #FFFFFF;
+    font-size: 1rem;
+    font-weight: 500;
+    letter-spacing: 0%;
+    text-transform: uppercase;
+    margin: 0;
+    font-family: "Bricolage Grotesque", sans-serif;
+    line-height: 100%;
+}
+
+.serve-card__title {
+    width: fit-content;
+    color: #FFFFFF;
+    font-weight: 700;
+    font-size: 1.5rem;
+    font-family: "Bricolage Grotesque", sans-serif;
+    margin: 0;
+}
+
+.serve-card__desc {
+    color: rgba(255, 255, 255, 0.85);
+    font-size: 1rem;
+    line-height: 100%;
+    margin: 0;
+}

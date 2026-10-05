@@ -1,0 +1,66 @@
+/* Good Job Ministry - Site Styles */
+/* Architectural constraint: 100% Flexbox layout. Never use grid or display: grid. */
+/* Sizing constraint: all widths in %, all heights auto (no fixed px heights) */
+
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,200..800&display=swap');
+
+
+:root {
+    --color-bg: #05121E;
+    --color-text-main: #f1f5f9;
+    --color-text-muted: #e2e8f0;
+    --color-white: #ffffff;
+
+    --color-brand-blue: #0976DE;
+    --color-brand-blue-hover: #2560D8;
+    --color-brand-outline: #3B5BFE;
+
+    --font-sans: 'Plus Jakarta Sans', 'Inter', system-ui, sans-serif;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html,
+body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    min-height: 100%;
+}
+
+.page-body {
+    background-color: var(--color-bg);
+    background-image: radial-gradient(circle at 50% 40%, rgba(9, 118, 222, 0.06) 0%, transparent 60%);
+    color: var(--color-text-main);
+    font-family: var(--font-sans);
+    display: flex;
+    flex-direction: column;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    overflow-x: hidden;
+}
+
+.page-body ::selection {
+    background-color: var(--color-brand-blue);
+    color: var(--color-white);
+}
+
+.eyebrow-label {
+    color: var(--color-brand-blue);
+    font-size: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 0%;
+    font-weight: 500;
+    margin-bottom: 2rem;
+    font-family: "Bricolage Grotesque", sans-serif;
+    line-height: 16px;
+}
+
+.eyebrow-label--dark {
+    width: fit-content;
+    color: var(--color-brand-blue);
+    margin: 0;
+}
