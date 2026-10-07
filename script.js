@@ -35,25 +35,39 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Handle Speaking Invitations form submission
+    // Form submission handlers - WhatsApp integration
     const inviteForm = document.getElementById('inviteForm');
-    if (inviteForm) {
-        inviteForm.addEventListener('submit', (event) => {
-            event.preventDefault();
-            console.log('Invite form submitted:', Object.fromEntries(new FormData(inviteForm)));
-            // Replace with actual submission logic once a backend/endpoint is connected
-        });
+    const feedbackForm = document.getElementById('feedbackForm');
+    const faqForm = document.getElementById('faqForm');
+
+    const WHATSAPP_NUMBER = '2348081832852';
+
+    function sendToWhatsApp(formData, formLabel) {
+        const lines = [`*New ${formLabel} Submission*`, ''];
+        for (const [key, value] of formData.entries()) {
+            if (value.trim()) lines.push(`*${key}:* ${value}`);
+        }
+        const message = encodeURIComponent(lines.join('\n'));
+        window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${message}`, '_blank');
     }
 
-    // Handle Feedback form submission
-    const feedbackForm = document.getElementById('feedbackForm');
-    if (feedbackForm) {
-        feedbackForm.addEventListener('submit', (event) => {
-            event.preventDefault();
-            console.log('Feedback submitted:', Object.fromEntries(new FormData(feedbackForm)));
-            // Replace with actual submission logic once a backend/endpoint is connected
-        });
-    }
+    // Invite form
+    inviteForm.addEventListener('submit', (event) => {
+        event.preventDefault();
+        sendToWhatsApp(new FormData(inviteForm), 'Speaking Invitation');
+    });
+
+    // Feedback form
+    feedbackForm.addEventListener('submit', (event) => {
+        event.preventDefault();
+        sendToWhatsApp(new FormData(feedbackForm), 'Feedback');
+    });
+
+    // FAQ form
+    faqForm.addEventListener('submit', (event) => {
+        event.preventDefault();
+        sendToWhatsApp(new FormData(faqForm), 'Question');
+    });
 
     // Reflections Carousel
     const track = document.getElementById('reflectionsTrack');
@@ -96,13 +110,29 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // Handle FAQ form submission
-    const faqForm = document.getElementById('faqForm');
-    if (faqForm) {
-        faqForm.addEventListener('submit', (event) => {
-            event.preventDefault();
-            console.log('FAQ submitted:', Object.fromEntries(new FormData(faqForm)));
-            // Replace with actual submission logic once a backend/endpoint is connected
+    // Mobile Menu Toggle
+    const mobileMenuToggle = document.getElementById('mobileMenuToggle');
+    const mobileMenu = document.getElementById('mobileMenu');
+    const mobileMenuClose = document.getElementById('mobileMenuClose');
+
+    function openMobileMenu() {
+        mobileMenu.classList.add('mobile-menu--open');
+        mobileMenuToggle.setAttribute('aria-expanded', 'true');
+        document.body.style.overflow = 'hidden'; // prevents background scroll while menu is open
+    }
+
+    function closeMobileMenu() {
+        mobileMenu.classList.remove('mobile-menu--open');
+        mobileMenuToggle.setAttribute('aria-expanded', 'false');
+        document.body.style.overflow = '';
+    }
+
+    if (mobileMenuToggle && mobileMenuClose) {
+        mobileMenuToggle.addEventListener('click', openMobileMenu);
+        mobileMenuClose.addEventListener('click', closeMobileMenu);
+
+        document.querySelectorAll('.mobile-menu__link, .mobile-menu__cta').forEach((link) => {
+            link.addEventListener('click', closeMobileMenu);
         });
     }
 });

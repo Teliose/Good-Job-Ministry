@@ -1,0 +1,153 @@
+/* Good Job Ministry - Footer Styles */
+
+.site-footer {
+    background-color: var(--color-bg);
+    width: 100%;
+    padding: 5rem 7.5rem 5rem 3.75rem;
+    display: flex;
+    flex-direction: column;
+    gap: 7.5rem;
+}
+
+.footer-top {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 100%;
+    gap: 9.375rem;
+}
+
+.footer-brand {
+    width: 32%;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.footer-brand__logo {
+    width: fit-content;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 0.8125rem;
+}
+
+.footer-brand__logo__img {
+    width: 60.97px;
+    height: 47.31px;
+}
+
+.footer-brand__logo__img a {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.footer-brand__logo__img a img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.footer-brand__name {
+    color: var(--color-brand-blue);
+    font-weight: 600;
+    font-size: 1.81125rem;
+    line-height: 100%;
+    font-family: "Poppins", sans-serif;
+}
+
+.footer-brand__tagline {
+    color: #CAD5E2;
+    font-size: 1.25rem;
+    line-height: 28px;
+    margin: 0;
+}
+
+.footer-col-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 5rem;
+}
+
+
+.footer-col {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.footer-col__title {
+    width: fit-content;
+    color: #CAD5E2;
+    font-weight: 400;
+    font-size: 1.5rem;
+    line-height: 100%;
+    text-transform: uppercase;
+    letter-spacing: 0%;
+    margin: 0;
+}
+
+.footer-col__link {
+    width: fit-content;
+    color: var(--color-white);
+    font-family: "Bricolage Grotesque", sans-serif;
+    font-weight: 400;
+    font-size: 1.5rem;
+    line-height: 100%;
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.footer-col__link:hover {
+    color: var(--color-brand-blue);
+}
+
+.footer-bottom-parent {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 2.5rem;
+    align-items: center;
+    justify-content: center;
+}
+
+.footer-divider {
+    width: 100%;
+    height: 1px;
+    background-color: rgba(29, 41, 61, 1);
+}
+
+.footer-bottom {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.footer-bottom__copyright,
+.footer-bottom__credit {
+    color: rgba(255, 255, 255, 1);
+    font-size: 1.125rem;
+    font-family: "Bricolage Grotesque", sans-serif;
+    font-weight: 500;
+    line-height: 28px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 1.25rem;
+    margin: 0;
+
+}
+
+.footer-copyright-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.15rem;
+    line-height: 1;
+}
