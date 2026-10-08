@@ -3,6 +3,9 @@
     background-color: #FFFFFF;
     width: 100%;
     padding: 6.25rem 3.75rem;
+    display: flex;
+    flex-direction: column;
+    gap: 2.5rem;
 }
 
 .about-header {
@@ -64,7 +67,6 @@
     padding: 1.25rem;
     border: 5px solid var(--color-brand-blue);
     border-radius: 32px;
-    margin-top: 2.5rem;
     background: #0976DE;
 }
 
@@ -82,7 +84,6 @@
     flex-direction: row;
     gap: 11.25%;
     width: 100%;
-    margin-top: 1.5rem;
 }
 
 .about-caption {
@@ -126,3 +127,85 @@
     line-height: 1.5;
     margin: 0 0 0 3rem;
 }
+
+@media (max-width: 768px) {
+    .about-section {
+        padding: 3rem 1.5rem;
+        display: flex;
+        flex-direction: column;
+        gap: 2.5rem; /* replaces the old top spacing between header, image frame, and captions — no margin */
+    }
+
+    .about-header {
+        flex-direction: column;
+        align-items: center;
+        gap: 1.25rem;
+        text-align: center;
+    }
+
+    .about-header__text,
+    .about-header__paragraph {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        margin-top: 0;
+    }
+
+    .about-heading {
+        width: 100%;
+        max-width: 80%;
+        font-size: clamp(1.65rem, 1.2rem + 3vw, 2.25rem);
+        text-align: center;
+        line-height: 1.15;
+    }
+
+    .about-paragraph {
+        width: 100%; /* overrides the desktop width that was set for the side-by-side layout */
+        text-align: center;
+        font-size: 1rem;
+        line-height: 1.5;
+    }
+
+    .about-image-frame {
+        flex-direction: column;
+        gap: 0.75rem;
+        padding: 0.75rem;
+        border-width: 5px;
+        border-radius: 28px;
+    }
+
+    .about-image-frame img {
+        width: 100%;
+        height: auto;
+        aspect-ratio: 1 / 0.7; /* wide-ish landscape crop to match the reference */
+    }
+
+    .about-captions {
+        flex-direction: column;
+        align-items: center;
+        gap: 1.5rem;
+    }
+
+    .about-caption {
+        width: 100%;
+        align-items: center;
+        text-align: center;
+    }
+
+    .about-caption:first-of-type {
+        margin-left: 0;
+    }
+
+    .about-caption__title {
+        justify-content: center;
+    }
+
+    .about-caption__text {
+        margin: 0;
+        text-align: center;
+        max-width: 14.5rem;
+    }
+}
+

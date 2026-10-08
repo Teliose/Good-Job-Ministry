@@ -171,7 +171,7 @@
     color: var(--color-brand-blue);
     font-size: 1rem;
     font-weight: 500;
-    margin-bottom: 0.25rem;
+    margin-bottom: 0.5rem;
     font-family: "Bricolage Grotesque", sans-serif;
     line-height: 16px;
     letter-spacing: 0%;
@@ -185,4 +185,73 @@
     line-height: 16px;
     letter-spacing: 0%;
     font-family: "Bricolage Grotesque", sans-serif;
+}
+
+@media (max-width: 768px) {
+    .values-container {
+        flex-direction: column;
+        gap: 3.75rem;
+        padding: 3rem 0.5rem;
+    }
+
+    .values-graphic-col,
+    .values-text-col {
+        width: 100%;
+    }
+
+    .values-circle__wrapper {
+        width: 85%;
+        /* centered, slightly inset from full width so orbit labels have room */
+    }
+
+    .values-circle__orbit-label {
+        white-space: normal;
+        /* allow wrapping instead of forcing one line */
+        font-size: 0.75rem;
+        /* scale down for mobile */
+        padding: 0.4rem 0.6rem;
+        max-width: 5.5rem;
+        /* caps how wide any one label can get */
+        text-align: center;
+    }
+
+    .values-text-col {
+        padding: 0rem 1rem;
+        align-items: center;
+        text-align: center;
+    }
+
+    .values-text-col>.eyebrow-label {
+        margin-bottom: 1rem;
+        font-size: 0.875rem;
+    }
+
+    .values-text-col>.values-paragraph:first-of-type {
+        margin: 0rem;
+    }
+
+    .values-text-col>.values-paragraph {
+        font-size: 1rem;
+        line-height: 24px;
+    }
+
+
+
+    .eyebrow-label,
+    .values-heading,
+    .values-paragraph {
+        text-align: center;
+    }
+
+    .values-heading {
+        font-size: clamp(1.5rem, 1.1rem + 4vw, 2rem);
+        margin-bottom: 1.25rem;
+        line-height: 100%;
+    }
+
+    .callout-block {
+        border-left: 2px solid var(--color-brand-blue);
+        padding: 0.1875rem 0 0.1875rem 0.75rem;
+        text-align: center;
+    }
 }

@@ -143,3 +143,70 @@
     border-radius: 16px;
     display: block;
 }
+
+@media (max-width: 768px) {
+    .hero-section {
+        min-height: auto;
+        padding-top: 1.5rem;
+    }
+
+    .hero-container {
+        flex-direction: column;
+        padding: 0 1rem;
+        margin-top: 0;
+        /* if margin was used here previously, replace with equivalent top padding on the section itself instead */
+        gap: 2.5rem;
+        /* creates consistent spacing between heading, paragraph, buttons, and image — replaces any margin-based spacing */
+    }
+
+    .hero-text-col,
+    .hero-image-col {
+        width: 100%;
+        text-align: center;
+    }
+
+    .hero-image-col {
+        margin-top: 0;
+        /* no margin per our standing rule — if spacing is needed above the image, add padding-top to .hero-container or use gap on it instead */
+    }
+
+    .hero-image {
+        width: 100%;
+        aspect-ratio: 1 / 0.85;
+        /* adjust to match the reference's proportions — slightly wider than tall */
+        border-radius: 16px;
+    }
+
+    .hero-heading {
+        font-size: clamp(1.75rem, 1.2rem + 5vw, 2.5rem);
+        /* steeper scaling for narrow viewports */
+        /* max-width: 100%; */
+        text-align: center;
+        line-height: 100%;
+        letter-spacing: 2%;
+        font-family: "Bricolage Grotesque", sans-serif;
+        font-weight: 700;
+
+    }
+
+    .hero-paragraph {
+        /* max-width: 100%; */
+        text-align: center;
+        margin-bottom: 2rem;
+        line-height: 30px;
+        letter-spacing: 0%;
+        font-size: 1.25rem;
+        font-family: "Bricolage Grotesque", sans-serif;
+    }
+
+    .hero-buttons {
+        flex-direction: column;
+        width: 100%;
+        gap: 1.25rem;
+    }
+
+    .hero-btn {
+        width: 100%;
+        text-align: center;
+    }
+}

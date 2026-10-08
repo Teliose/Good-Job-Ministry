@@ -127,3 +127,61 @@
     line-height: 100%;
     margin: 0;
 }
+
+@media (max-width: 768px) {
+    .serve-section {
+        padding: 3rem 1.5rem;
+        gap: 2.5rem;
+    }
+
+    .serve-header {
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
+    }
+
+    .serve-header__text,
+    .serve-header__content {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: 1rem;
+    }
+
+    .serve-heading {
+        width: 100%; /* overrides the 50% set for the desktop side-by-side layout */
+        max-width: 15rem;
+        text-align: center;
+        font-size: clamp(1.5rem, 1.1rem + 4vw, 2rem);
+        line-height: 1.2;
+    }
+
+    .serve-header__content .about-paragraph {
+        width: 100%; /* overrides the 40% set for the desktop layout */
+        max-width: 20rem;
+        text-align: center;
+        font-size: 1rem;
+        line-height: 1.5;
+    }
+
+    .serve-cards {
+        flex-direction: column;
+        gap: 3.75rem; /* matches the generous spacing between cards in the reference */
+    }
+
+    .serve-card {
+        width: 100%;
+        aspect-ratio: 1 / 1.7; /* taller portrait proportion than desktop's near-square */
+    }
+
+    .serve-card__overlay {
+        padding: 1.25rem;
+    }
+
+    .serve-card__desc {
+        line-height: 1.4;
+    }
+}
+
