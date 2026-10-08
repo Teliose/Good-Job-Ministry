@@ -144,7 +144,7 @@
 
 @media (max-width: 768px) {
     .site-header {
-        padding: 2.5rem 1rem;
+        padding: 1.25rem 1rem;
         /* reduced from the desktop padding */
     }
 
@@ -183,7 +183,7 @@
         background-color: var(--color-bg);
         z-index: 100;
         flex-direction: column;
-        padding: 2.5rem 1rem;
+        padding: 1.5rem 1rem;
         gap: 2.5rem;
     }
 

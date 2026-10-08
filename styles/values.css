@@ -191,7 +191,7 @@
     .values-container {
         flex-direction: column;
         gap: 3.75rem;
-        padding: 3rem 0.5rem;
+        padding: 6.25rem 1rem;
     }
 
     .values-graphic-col,

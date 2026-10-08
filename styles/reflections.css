@@ -57,6 +57,7 @@
 }
 
 .reflections-track {
+    position: relative; /* lets the JS measure each card's position relative to the track */
     display: flex;
     flex-direction: row;
     gap: 20px;
@@ -186,4 +187,57 @@
     background-color: var(--color-brand-blue);
     border: none;
     color: #FFFFFF;
+}
+
+@media (max-width: 768px) {
+    .reflections-section {
+        padding: 6.25rem 1rem;
+        gap: 2rem;
+    }
+
+    .reflections-header {
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
+    }
+
+    .reflections-header__text {
+        width: 100%;
+        align-items: center;
+        text-align: center;
+    }
+
+    .reflections-heading {
+        width: 100%;
+        text-align: center;
+        font-size: clamp(1.5rem, 1.1rem + 4vw, 2rem);
+        line-height: 1.2;
+    }
+
+    .reflections-paragraph {
+        width: 100%; /* overrides the desktop 38% */
+        text-align: center;
+        font-size: 1rem;
+        margin: 0;
+    }
+
+    .reflections-track {
+        gap: 1rem;
+    }
+
+    .reflection-card {
+        width: 100%; /* overrides the desktop 32%, so one card fills the view */
+    }
+
+    .reflection-card__image {
+        aspect-ratio: 1 / 1.08; /* taller than desktop, as in the reference */
+    }
+
+    .reflection-card__title {
+        line-height: 1.2; /* desktop's 100% is too tight once text wraps */
+    }
+
+    .reflection-card__excerpt {
+        line-height: 1.25;
+    }
 }

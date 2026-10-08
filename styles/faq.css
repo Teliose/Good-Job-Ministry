@@ -195,3 +195,62 @@
 .faq-form__submit:active {
     transform: scale(0.98);
 }
+
+@media (max-width: 768px) {
+    .faq-section {
+        padding: 6.25rem 1rem; /* 100px top and bottom, 16px sides, measured from the reference */
+    }
+
+    .faq-container {
+        flex-direction: column;
+        gap: 2.5rem;
+    }
+
+    .faq-text-col {
+        width: 100%; /* overrides the desktop 29% */
+        align-items: center;
+        text-align: center;
+        gap: 1.5rem;
+    }
+
+    .faq-heading {
+        width: 100%;
+        text-align: center;
+        font-size: clamp(1.5rem, 1.1rem + 4vw, 2rem);
+        line-height: 1.2;
+    }
+
+    .faq-paragraph {
+        width: 100%;
+        text-align: center;
+        font-size: 1rem;
+        line-height: 1.5;
+    }
+
+    .faq-content-col {
+        width: 100%; /* overrides the desktop 41% */
+        gap: 3.5rem; /* space between the accordion and the form */
+    }
+
+    .faq-item__question {
+        align-items: flex-start; /* keeps the + level with the first line of a wrapped question */
+        gap: 1rem;
+    }
+
+    .faq-item__icon {
+        flex-shrink: 0; /* stops the + from being squeezed by long questions */
+    }
+
+    .faq-form {
+        gap: 1.4rem;
+    }
+
+    .faq-form__row {
+        flex-direction: column; /* Name and Your Question no longer sit side by side */
+        gap: 1.4rem;
+    }
+
+    .faq-form__field {
+        width: 100%; /* overrides the desktop 48.5% */
+    }
+}

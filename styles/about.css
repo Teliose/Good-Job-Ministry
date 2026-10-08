@@ -130,7 +130,7 @@
 
 @media (max-width: 768px) {
     .about-section {
-        padding: 3rem 1.5rem;
+        padding: 6.25rem 1rem;
         display: flex;
         flex-direction: column;
         gap: 2.5rem; /* replaces the old top spacing between header, image frame, and captions — no margin */

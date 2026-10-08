@@ -70,35 +70,57 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // Reflections Carousel
-    const track = document.getElementById('reflectionsTrack');
-    const dots = document.querySelectorAll('.reflections-dot');
-    const prevBtn = document.getElementById('reflectionsPrev');
-    const nextBtn = document.getElementById('reflectionsNext');
-    let currentPage = 0;
-    const totalPages = 2; // 6 cards, 3 visible at a time
+    const reflectionsTrack = document.getElementById('reflectionsTrack');
+    const reflectionCards = reflectionsTrack.querySelectorAll('.reflection-card');
+    const reflectionsDots = document.getElementById('reflectionsDots');
+    const reflectionsPrev = document.getElementById('reflectionsPrev');
+    const reflectionsNext = document.getElementById('reflectionsNext');
+    let reflectionsPage = 0;
 
-    function goToPage(pageIndex) {
-        if (!track) return;
-        currentPage = Math.max(0, Math.min(pageIndex, totalPages - 1));
-        const offset = currentPage * 100; // shifts by one full visible set (3 cards) per page
-        track.style.transform = `translateX(-${offset}%)`;
-        dots.forEach((dot, i) => {
-            dot.classList.toggle('reflections-dot--active', i === currentPage);
+    function reflectionsPerView() {
+        return window.matchMedia('(max-width: 768px)').matches ? 1 : 3;
+    }
+
+    function reflectionsTotalPages() {
+        return Math.ceil(reflectionCards.length / reflectionsPerView());
+    }
+
+    function renderReflectionsDots() {
+        reflectionsDots.innerHTML = '';
+        for (let i = 0; i < reflectionsTotalPages(); i++) {
+            const dot = document.createElement('button');
+            dot.className = 'reflections-dot';
+            dot.setAttribute('aria-label', `Go to page ${i + 1}`);
+            dot.addEventListener('click', () => goToReflectionsPage(i));
+            reflectionsDots.appendChild(dot);
+        }
+    }
+
+    function goToReflectionsPage(page) {
+        reflectionsPage = Math.max(0, Math.min(page, reflectionsTotalPages() - 1));
+        const targetCard = reflectionCards[reflectionsPage * reflectionsPerView()];
+        reflectionsTrack.style.transform = `translateX(-${targetCard.offsetLeft}px)`;
+        reflectionsDots.querySelectorAll('.reflections-dot').forEach((dot, i) => {
+            dot.classList.toggle('reflections-dot--active', i === reflectionsPage);
         });
     }
 
-    if (track) {
-        dots.forEach((dot) => {
-            dot.addEventListener('click', () => goToPage(parseInt(dot.dataset.page)));
-        });
+    reflectionsPrev.addEventListener('click', () => goToReflectionsPage(reflectionsPage - 1));
+    reflectionsNext.addEventListener('click', () => goToReflectionsPage(reflectionsPage + 1));
 
-        if (prevBtn) {
-            prevBtn.addEventListener('click', () => goToPage(currentPage - 1));
+    let lastReflectionsPerView = reflectionsPerView();
+    window.addEventListener('resize', () => {
+        const current = reflectionsPerView();
+        if (current !== lastReflectionsPerView) {
+            lastReflectionsPerView = current;
+            reflectionsPage = 0;
+            renderReflectionsDots();
         }
-        if (nextBtn) {
-            nextBtn.addEventListener('click', () => goToPage(currentPage + 1));
-        }
-    }
+        goToReflectionsPage(reflectionsPage);
+    });
+
+    renderReflectionsDots();
+    goToReflectionsPage(0);
 
     // FAQ Accordion Toggle
     document.querySelectorAll('.faq-item__question').forEach((button) => {
@@ -107,6 +129,13 @@ document.addEventListener('DOMContentLoaded', () => {
             const answer = button.nextElementSibling;
             button.setAttribute('aria-expanded', String(!expanded));
             answer.style.maxHeight = expanded ? '0' : answer.scrollHeight + 'px';
+        });
+    });
+
+    window.addEventListener('resize', () => {
+        document.querySelectorAll('.faq-item__question[aria-expanded="true"]').forEach((button) => {
+            const answer = button.nextElementSibling;
+            answer.style.maxHeight = answer.scrollHeight + 'px';
         });
     });
 

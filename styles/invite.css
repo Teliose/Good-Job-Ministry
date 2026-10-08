@@ -143,3 +143,54 @@
 .invite-form__submit:active {
     transform: scale(0.98);
 }
+
+@media (max-width: 768px) {
+    .invite-section {
+        padding: 6.25rem 1rem;
+    }
+
+    .invite-container {
+        flex-direction: column;
+        gap: 2.5rem;
+    }
+
+    .invite-text-col {
+        width: 100%;
+        align-items: center;
+        text-align: center;
+        gap: 1.5rem;
+    }
+
+    .invite-heading {
+        text-align: center;
+        font-size: clamp(1.5rem, 1.1rem + 4vw, 2rem);
+        line-height: 1.2;
+    }
+
+    .invite-paragraph {
+        text-align: center;
+        font-size: 1rem;
+        line-height: 1.5;
+    }
+
+    .invite-form {
+        width: 100%; /* overrides the desktop 39% */
+        gap: 2.5rem; /* spacing between fields, measured from the reference */
+    }
+
+    .invite-form__row {
+        flex-direction: column; /* Name/Organization and Email/Date no longer sit side by side */
+        gap: 2.5rem;
+        margin-bottom: 0; /* overrides desktop margin-bottom to rely purely on gap */
+    }
+
+    .invite-form__field {
+        width: 100%; /* overrides the desktop 48.5% */
+    }
+
+    .invite-form__field input[type="date"] {
+        -webkit-appearance: none;
+        appearance: none;
+        min-height: 2.75rem; /* iPhones render date inputs shorter than text inputs without this */
+    }
+}

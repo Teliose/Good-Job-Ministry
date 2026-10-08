@@ -151,3 +151,45 @@
     font-size: 1.15rem;
     line-height: 1;
 }
+
+@media (max-width: 768px) {
+    .site-footer {
+        padding: 5rem 1rem 7.5rem; /* 16px sides; 80px top; extra bottom space per the reference */
+        gap: 3rem;
+    }
+
+    .footer-top {
+        flex-direction: column;
+        flex-wrap: nowrap;
+        justify-content: flex-start;
+        gap: 3.75rem; /* brand block to the first link group */
+        padding-bottom: 2rem; /* with the footer's own gap, puts about 80px between the links and the divider */
+    }
+
+    .footer-brand {
+        width: 100%; /* overrides the desktop 32% */
+    }
+
+    .footer-col-container {
+        flex-direction: column;
+        gap: 3.75rem;
+        width: 100%;
+    }
+
+    .footer-col + .footer-col {
+        padding-top: 1.25rem; /* link groups sit about 80px apart, wider than the brand-to-links gap */
+    }
+
+    .footer-bottom {
+        flex-direction: column;
+        align-items: center;
+        gap: 0.6rem;
+        text-align: center;
+    }
+
+    .footer-bottom__copyright,
+    .footer-bottom__credit {
+        justify-content: center;
+        font-size: 0.85rem;
+    }
+}

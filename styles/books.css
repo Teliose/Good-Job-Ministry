@@ -245,3 +245,93 @@
     font-family: "Lato", sans-serif;
     display: block;
 }
+
+@media (max-width: 768px) {
+    .books-section {
+        padding: 6.25rem 1rem;
+        gap: 3rem;
+    }
+
+    .books-header {
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
+    }
+
+    .books-header__text {
+        width: 100%;
+        align-items: center;
+        text-align: center;
+    }
+
+    .books-heading {
+        text-align: center;
+        font-size: clamp(1.5rem, 1.1rem + 4vw, 2rem);
+        line-height: 1.2;
+    }
+
+    .books-paragraph {
+        width: 100%; /* overrides the desktop 36% */
+        text-align: center;
+        font-size: 0.9rem;
+        margin: 0;
+    }
+
+    .featured-book {
+        flex-direction: column;
+        gap: 3rem;
+    }
+
+    .featured-book__cover {
+        width: 100%;
+        aspect-ratio: 1 / 1.27; /* taller than desktop's square, per the reference */
+        border-radius: 24px;
+    }
+
+    .featured-book__badge {
+        top: 1.5rem;
+        left: 1.5rem;
+    }
+
+    .featured-book__overlay {
+        top: 4.5rem;
+        left: 1.5rem;
+        width: calc(100% - 3rem); /* keeps equal left and right gaps at any phone width */
+    }
+
+    .featured-book__content {
+        width: 100%;
+        align-items: center;
+        text-align: center;
+        gap: 1.5rem;
+    }
+
+    .featured-book__title {
+        text-transform: capitalize; /* mobile design capitalizes every word */
+        font-size: clamp(1.35rem, 0.8rem + 3.5vw, 1.75rem);
+    }
+
+    .featured-book__desc {
+        font-size: 0.9rem;
+    }
+
+    .book-cards {
+        flex-direction: column;
+        gap: 1.5rem;
+    }
+
+    .book-card {
+        width: 100%;
+        padding: 1.5rem;
+    }
+
+    .book-card__cover {
+        height: auto;
+        aspect-ratio: 1 / 0.88;
+    }
+
+    .book-card__cover img {
+        width: 71%; /* keeps the book's 4:5 proportion inside the squarer mobile cover area */
+        height: 100%;
+    }
+}
