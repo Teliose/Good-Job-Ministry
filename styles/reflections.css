@@ -60,6 +60,7 @@
     position: relative; /* lets the JS measure each card's position relative to the track */
     display: flex;
     flex-direction: row;
+    align-items: stretch;
     gap: 20px;
     width: 100%;
     transition: transform 0.4s ease;
@@ -79,7 +80,8 @@
 .reflection-card__content {
     display: flex;
     flex-direction: column;
-    gap: 1.25rem;
+    gap: 0.625rem;
+    padding-bottom: 1.25rem;
 }
 
 .reflection-card__image {
@@ -89,6 +91,7 @@
     object-fit: cover;
     border-radius: 12px;
     display: block;
+    padding-bottom: 0.625rem;
 }
 
 .reflection-card__date {
@@ -100,6 +103,7 @@
     font-family: "Bricolage Grotesque", sans-serif;
     letter-spacing: 0%;
     margin: 0;
+    padding-bottom: 0.625rem;
 }
 
 .reflection-card__title {
@@ -110,7 +114,6 @@
     font-family: "Bricolage Grotesque", sans-serif;
     letter-spacing: 0%;
     margin: 0;
-    margin-bottom: -0.625rem;
 }
 
 .reflection-card__excerpt {

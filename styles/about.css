@@ -133,7 +133,8 @@
         padding: 6.25rem 1rem;
         display: flex;
         flex-direction: column;
-        gap: 2.5rem; /* replaces the old top spacing between header, image frame, and captions — no margin */
+        gap: 2.5rem;
+        /* replaces the old top spacing between header, image frame, and captions — no margin */
     }
 
     .about-header {
@@ -162,7 +163,8 @@
     }
 
     .about-paragraph {
-        width: 100%; /* overrides the desktop width that was set for the side-by-side layout */
+        width: 100%;
+        /* overrides the desktop width that was set for the side-by-side layout */
         text-align: center;
         font-size: 1rem;
         line-height: 1.5;
@@ -179,13 +181,15 @@
     .about-image-frame img {
         width: 100%;
         height: auto;
-        aspect-ratio: 1 / 0.7; /* wide-ish landscape crop to match the reference */
+        aspect-ratio: 1 / 0.7;
+        /* wide-ish landscape crop to match the reference */
     }
 
     .about-captions {
         flex-direction: column;
         align-items: center;
-        gap: 1.5rem;
+        gap: 2rem;
+        padding: 0.625rem;
     }
 
     .about-caption {
@@ -208,4 +212,3 @@
         max-width: 14.5rem;
     }
 }
-

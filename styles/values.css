@@ -32,6 +32,7 @@
 
 /* Graphic Circular Element */
 .values-circle__wrapper {
+    --p: 1;
     position: relative;
     width: 100%;
     /* tune this % so the ring renders at ~545px at your target viewport — adjust freely */
@@ -81,13 +82,18 @@
 .values-circle__center-icon {
     width: 38%;
     height: auto;
+    transform: rotate(calc((1 - var(--p)) * -180deg));
+    opacity: calc(0.35 + 0.65 * var(--p));
+    will-change: transform, opacity;
 }
 
 /* Orbiting Labels */
 .values-circle__orbit-label {
     width: fit-content;
     position: absolute;
-    transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%) translate(calc((1 - var(--p)) * var(--dx, 0rem)), calc((1 - var(--p)) * var(--dy, 0rem)));
+    opacity: var(--p);
+    will-change: transform, opacity;
     /* background-color: rgba(23, 36, 59, 0.85); */
     border: 1px solid rgba(255, 255, 255, 0.08);
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
@@ -107,33 +113,45 @@
     top: 13.5%;
     left: 50%;
     color: #0976DE;
+    --dx: 0rem;
+    --dy: -3rem;
 }
 
 .values-circle__orbit-label--teaching {
     top: 25%;
     left: 17.5%;
+    --dx: -3rem;
+    --dy: -1.5rem;
 }
 
 .values-circle__orbit-label--generosity {
     top: 25%;
     left: 82.5%;
+    --dx: 3rem;
+    --dy: -1.5rem;
 }
 
 .values-circle__orbit-label--hope {
     top: 74%;
     left: 17.5%;
     color: #0976DE;
+    --dx: -3rem;
+    --dy: 1.5rem;
 }
 
 .values-circle__orbit-label--faith {
     top: 74%;
     left: 82.5%;
     color: #0976DE;
+    --dx: 3rem;
+    --dy: 1.5rem;
 }
 
 .values-circle__orbit-label--community {
     top: 88.5%;
     left: 50%;
+    --dx: 0rem;
+    --dy: 3rem;
 }
 
 /* Values Text Content */
@@ -214,6 +232,13 @@
         /* caps how wide any one label can get */
         text-align: center;
     }
+
+    .values-circle__orbit-label--love       { --dx: 0rem;    --dy: -1.5rem; }
+    .values-circle__orbit-label--teaching   { --dx: -1.5rem; --dy: -0.75rem; }
+    .values-circle__orbit-label--generosity { --dx: 1.5rem;  --dy: -0.75rem; }
+    .values-circle__orbit-label--hope       { --dx: -1.5rem; --dy: 0.75rem; }
+    .values-circle__orbit-label--faith      { --dx: 1.5rem;  --dy: 0.75rem; }
+    .values-circle__orbit-label--community  { --dx: 0rem;    --dy: 1.5rem; }
 
     .values-text-col {
         padding: 0rem 1rem;

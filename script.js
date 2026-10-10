@@ -164,4 +164,90 @@ document.addEventListener('DOMContentLoaded', () => {
             link.addEventListener('click', closeMobileMenu);
         });
     }
+
+    // Three Values Circle - Scroll-Linked Entrance Animation
+    const valuesWrapper = document.querySelector('.values-circle__wrapper');
+    if (valuesWrapper && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+        let ticking = false;
+        const clamp = (n, min, max) => Math.min(max, Math.max(min, n));
+        const easeOutCubic = (t) => 1 - Math.pow(1 - t, 3);
+
+        function updateValuesProgress() {
+            const rect = valuesWrapper.getBoundingClientRect();
+            const vh = window.innerHeight;
+            // 0 when the wrapper's top is at 90% of the viewport height, 1 when it is 50% of the viewport higher
+            const raw = clamp((vh * 0.9 - rect.top) / (vh * 0.5), 0, 1);
+            valuesWrapper.style.setProperty('--p', easeOutCubic(raw).toFixed(4));
+            ticking = false;
+        }
+        function onScrollOrResize() {
+            if (!ticking) { ticking = true; requestAnimationFrame(updateValuesProgress); }
+        }
+        window.addEventListener('scroll', onScrollOrResize, { passive: true });
+        window.addEventListener('resize', onScrollOrResize);
+        updateValuesProgress();
+    }
+
+    // Scroll Reveal System
+    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (!reduceMotion && 'IntersectionObserver' in window) {
+        // stagger: true means siblings in the same group reveal one after another (100ms apart)
+        const revealGroups = [
+            // Hero (plays on page load, since it is already in view)
+            { sel: '.hero-heading' },
+            { sel: '.hero-paragraph', delay: 120 },
+            { sel: '.hero-buttons', delay: 240 },
+            { sel: '.hero-image-col', delay: 200 },
+            // Values (text side only. The circle has its own scroll animation, do NOT add it here)
+            { sel: '.values-text-col > *', stagger: true },
+            // About
+            { sel: '.about-header__text' },
+            { sel: '.about-header__paragraph', delay: 120 },
+            { sel: '.about-image-frame' },
+            { sel: '.about-caption', stagger: true },
+            // Serve
+            { sel: '.serve-header' },
+            { sel: '.serve-card', stagger: true },
+            // Faith in Action
+            { sel: '.faith-text-col' },
+            { sel: '.faith-image-col', delay: 120 },
+            { sel: '.faith-card', stagger: true },
+            // Reflections (animate the wrapper, NOT the individual cards, so the carousel is not affected)
+            { sel: '.reflections-header' },
+            { sel: '.reflections-track-wrapper' },
+            { sel: '.reflections-controls' },
+            // Invite, Feedback, FAQ
+            { sel: '.invite-text-col' },
+            { sel: '.invite-form', delay: 120 },
+            { sel: '.feedback-text-col' },
+            { sel: '.feedback-form', delay: 120 },
+            { sel: '.faq-text-col' },
+            { sel: '.faq-item', stagger: true },
+            { sel: '.faq-form' }
+        ];
+
+        const io = new IntersectionObserver((entries) => {
+            entries.forEach((entry) => {
+                if (!entry.isIntersecting) return;
+                const el = entry.target;
+                el.classList.add('is-visible');
+                io.unobserve(el);
+                // clean up once finished so it never interferes with hover or other transitions
+                el.addEventListener('transitionend', (e) => {
+                    if (e.propertyName !== 'opacity') return;
+                    el.classList.remove('reveal', 'is-visible');
+                    el.style.removeProperty('--reveal-delay');
+                }, { once: true });
+            });
+        }, { threshold: 0.15, rootMargin: '0px 0px -8% 0px' });
+
+        revealGroups.forEach((group) => {
+            document.querySelectorAll(group.sel).forEach((el, i) => {
+                el.classList.add('reveal');
+                const delay = group.stagger ? i * 100 : (group.delay || 0);
+                el.style.setProperty('--reveal-delay', delay + 'ms');
+                io.observe(el);
+            });
+        });
+    }
 });
