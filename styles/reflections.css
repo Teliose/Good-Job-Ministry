@@ -138,6 +138,12 @@
     gap: 0.5rem;
 }
 
+.reflection-card__link:focus-visible {
+    outline: 2px solid var(--color-brand-blue);
+    outline-offset: 3px;
+    border-radius: 4px;
+}
+
 .reflections-controls {
     display: flex;
     flex-direction: row;
@@ -160,6 +166,11 @@
     background-color: #CBD5E0;
     cursor: pointer;
     padding: 0;
+}
+
+.reflections-dot:focus-visible {
+    outline: 2px solid var(--color-brand-blue);
+    outline-offset: 3px;
 }
 
 .reflections-dot--active {
@@ -190,6 +201,11 @@
     background-color: var(--color-brand-blue);
     border: none;
     color: #FFFFFF;
+}
+
+.reflections-arrow:focus-visible {
+    outline: 2px solid var(--color-brand-blue);
+    outline-offset: 3px;
 }
 
 @media (max-width: 768px) {

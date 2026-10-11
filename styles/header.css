@@ -26,6 +26,11 @@
     outline: none;
 }
 
+.logo-link:focus-visible {
+    outline: 2px solid var(--color-brand-outline);
+    outline-offset: 3px;
+}
+
 /* Navigation Links */
 .main-nav {
     display: flex;
@@ -131,6 +136,11 @@
     padding: 0;
 }
 
+.mobile-menu-toggle:focus-visible {
+    outline: 2px solid var(--color-brand-outline);
+    outline-offset: 3px;
+}
+
 .mobile-menu-toggle__bar {
     width: 100%;
     height: 2px;
@@ -218,6 +228,11 @@
         padding: 0.25rem;
     }
 
+    .mobile-menu__close:focus-visible {
+        outline: 2px solid var(--color-brand-outline);
+        outline-offset: 3px;
+    }
+
     .mobile-menu__nav {
         display: flex;
         flex-direction: column;
@@ -236,6 +251,12 @@
         padding: 0.5rem 1rem;
     }
 
+    .mobile-menu__link:focus-visible {
+        outline: 2px solid var(--color-brand-outline);
+        outline-offset: 3px;
+        border-radius: 4px;
+    }
+
     .mobile-menu__cta {
         width: 100%;
         text-align: center;
@@ -247,5 +268,10 @@
         text-decoration: none;
         font-size: 1.25rem;
         line-height: 100%;
+    }
+
+    .mobile-menu__cta:focus-visible {
+        outline: 2px solid var(--color-brand-outline);
+        outline-offset: 3px;
     }
 }

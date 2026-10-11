@@ -64,8 +64,20 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // FAQ form
+    const faqQuestion = document.getElementById('faqQuestionDetail');
+    if (faqQuestion) {
+        faqQuestion.addEventListener('input', () => {
+            faqQuestion.setCustomValidity('');
+        });
+    }
+
     faqForm.addEventListener('submit', (event) => {
         event.preventDefault();
+        if (faqQuestion && !faqQuestion.value.trim()) {
+            faqQuestion.setCustomValidity('Please type your question.');
+            faqQuestion.reportValidity();
+            return;
+        }
         sendToWhatsApp(new FormData(faqForm), 'Question');
     });
 

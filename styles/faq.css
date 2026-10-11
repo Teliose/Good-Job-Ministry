@@ -81,6 +81,8 @@
 
 .faq-item__question:focus-visible {
     color: var(--color-brand-blue);
+    outline: 2px solid var(--color-brand-blue);
+    outline-offset: 4px;
 }
 
 .faq-item__icon {
@@ -194,6 +196,11 @@
 
 .faq-form__submit:active {
     transform: scale(0.98);
+}
+
+.faq-form__submit:focus-visible {
+    outline: 2px solid var(--color-brand-blue);
+    outline-offset: 3px;
 }
 
 @media (max-width: 768px) {
