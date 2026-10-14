@@ -113,6 +113,11 @@
     transform: scale(0.98);
 }
 
+.feedback-form__submit:focus-visible {
+    outline: 2px solid var(--color-brand-blue);
+    outline-offset: 3px;
+}
+
 @media (max-width: 768px) {
     .feedback-section {
         padding: 6.25rem 1rem; /* 100px top and bottom, 16px sides, measured from the reference */
